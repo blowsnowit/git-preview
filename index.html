@@ -1,6 +1,6 @@
 <html lang="en"><head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>git预览</title>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
     <link rel="stylesheet" href="./assets/argon.css">
     <style>
@@ -38,15 +38,16 @@
 <script>
     function changeUrl(event){
         let url = event.target.value;
-        location.href = "/preview.html?" + url
+        location.href = "./preview.html?" + url
     }
 
     //尝试从地址中获取
     let pattern = /.*?\/[?#](.*?)$/;
     let result = pattern.exec(location.href);
     if (result && result.length >= 2){
-        location.href = "/preview.html?" + result[1]
+        location.href = "./preview.html?" + result[1]
     }
 </script>
 
-</body></html>
+</body>
+</html>
