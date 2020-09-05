@@ -263,10 +263,9 @@ class View{
     //渲染文本
     static renderText(blob){
         //输出文本内容
-        var dom = document.createElement('pre');
+        var dom = document.createElement('div');
         blob.text().then(function (text){
-            console.log(text);
-            dom.innerText = text;
+            dom.innerText  = text;
             document.body.appendChild(dom);
         });
     }
