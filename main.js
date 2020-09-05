@@ -290,15 +290,26 @@ class View{
 
 
 function load(url){
+    loadStart();
     Git.getGitAuto(url).getBlobByUrl(url).then(function (blob){
+        loadEnd();
         View.render(blob);
     })
 }
 
+function loadStart(){
+    $("body").append('<span id="load">正在开始加载资源...</span>');
+}
+
+function loadEnd(){
+    $("#load").remove();
+}
+
 
 //尝试从地址中获取
-let pattern = /.*?\/[?#](.*?)$/;
+let pattern = /.*?\/.*[?#](.*?)$/;
 let result = pattern.exec(location.href);
+console.log(location.href,result);
 if (result && result.length >= 2){
     load(result[1]);
 }
